@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>non-behavioral widget</title>
+    <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.22/dijit/themes/tundra/tundra.css">
+
+
+    <script>
+        var locationPath=location.pathname.replace(/\/[^\/]+$/, "");
+        var rootPath = locationPath.substr(0, locationPath.substr(1).indexOf("/") + 1);
+
+        window.dojoConfig={
+            deps:["Layout/NonBehavioralWidget"],
+            packages:[
+                {
+                    name:"Layout",
+                    location: rootPath + "/src/js/dojo/Layout"
+                }
+            ]
+        };
+
+    </script>
+    <script src="http://localhost:8080/arcgis_js_api/3.22/init.js"></script>
+
+</head>
+<body class="tundra">
+    <span data-dojo-type="MyFirstWidget">
+        最简单地行为性小部件
+    </span>
+</body>
+</html>
+

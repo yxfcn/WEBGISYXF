@@ -1,0 +1,32 @@
+<head>
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Layout Test</title>
+
+    <script>
+        var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
+        var rootPath = locationPath.substr(0, locationPath.substr(1).indexOf("/") + 1);
+        window.dojoConfig = {
+            deps: ["Layout/LayoutTest"],
+            packages: [
+                {
+                    name: "Layout",
+                    location: rootPath + "/src/js/dojo/Layout"
+                }
+            ]
+        };
+
+    </script>
+    <!--<script src="http://localhost:8080/arcgis_js_api/3.22/dojo/dojo.js"
+            data-dojo-config="async:1">
+    </script>-->
+
+    <script src="http://localhost:8080/dojo/dojo1.12/dojo/dojo.js"
+            data-dojo-config="async:1">
+    </script>
+</head>
+<body class="claro">
+<div id="appLayout" class="demoLayout"></div>
+</body>

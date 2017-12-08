@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>CounterWidgetTemplate</title>
+    <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.22/dijit/themes/tundra/tundra.css">
+
+
+    <script>
+        var locationPath=location.pathname.replace(/\/[^\/]+$/, "");
+        var rootPath = locationPath.substr(0, locationPath.substr(1).indexOf("/") + 1);
+
+        window.dojoConfig={
+            deps:["Layout/CounterWidgetTemplate"],
+            packages:[
+                {
+                    name:"Layout",
+                    location: rootPath + "/src/js/dojo/Layout"
+                }
+            ]
+        };
+
+    </script>
+    <script src="http://localhost:8080/arcgis_js_api/3.22/init.js"></script>
+
+</head>
+<body class="tundra">
+<span data-dojo-type="CounterWidgetTemplate"></span>
+</body>
+</html>

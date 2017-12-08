@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Maps Toolbar</title>
+    <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.22/dijit/themes/nihilo/nihilo.css"/>
+    <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.22/esri/css/esri.css"/>
+
+
+    <style>
+        html, body, #mainWindow {
+            font-family: sans-serif;
+            height: 100%;
+            width: 100%;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            height: 80px;
+            overflow: auto;
+            padding: 0.5em;
+        }
+    </style>
+
+    <script>
+        var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
+        var rootPath = locationPath.substr(0, locationPath.substr(1).indexOf("/") + 1);
+        window.dojoConfig = {
+            deps: ["Graphics/Drawing"],
+            packages: [
+                {
+                    name: "Graphics",
+                    location: rootPath + "/src/js/ESRIWebGIS/Editing/Graphics"
+                }
+            ]
+        };
+
+    </script>
+    <script src="http://localhost:8080/arcgis_js_api/3.22/init.js"></script>
+
+
+
+</head>
+<body class="nihilo">
+
+<div id="mainWindow" >
+    <div id="header" >
+
+        <button id="point" >Point</button>
+        <button id="multipoint">Multi Point</button>
+        <button id="line">Line</button>
+        <button id="polyline">Polyline</button>
+        <button id="polygon">Polygon</button>
+        <button id="freehandpolyline">Freehand Polyline</button>
+        <button id="freehandpolygon">Freehand Polygon</button>
+
+        <button id="arrow">Arrow</button>
+        <button id="triangle">Triangle</button>
+        <button id="circle">Circle</button>
+        <button id="ellipse">Ellipse</button>
+    </div>
+    <div id="map" ></div>
+</div>
+
+</body>
+</html>

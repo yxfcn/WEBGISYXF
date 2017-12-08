@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "amd",
+    "target": "es5",
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "./src/js/dojo/Layout/*",
+    "./src/js/ESRIWebGIS/Editing/Graphics/*",
+    "./src/js/Tianditu/*",
+    "./src/js/ESRIWebGIS/Editing/Graphics/*",
+    "./src/js/Test/*",
+    "./src/js/ESRIWebGIS/Map/Basemap/*",
+    "./src/js/ESRIWebGIS/TemplatePicker/*",
+    "./src/js/ESRIWebGIS/Editing/*",
+    "./src/js/webgisbook/widgets/*"
+  ],
+  "files": [
+    "./src/js/ESRIWebGIS/TemplatePicker/EditWithoutEditor.ts"
+  ]
+}

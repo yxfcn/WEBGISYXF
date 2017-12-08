@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.22/esri/css/esri.css">
+    <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.22/dijit/themes/claro/claro.css">
+
+    <title>加载天地图</title>
+    <style>
+        html,
+        body,
+        #mapDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+        #point{
+            position:absolute;
+            z-index: 50;
+            margin-top:10px;
+            margin-left: 60px;
+        }
+    </style>
+
+    <script>
+        var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
+        var rootPath=locationPath.substr(0,locationPath.substr(1).indexOf("/")+1);
+
+        window.dojoConfig = {
+            deps:["js/Test/LoadTDT"],
+            packages: [
+                {
+                    name: "js",
+                    location: rootPath + "/src/js"
+                }
+            ]
+        };
+
+    </script>
+</head>
+<body class="claro">
+
+<div id="mapDiv">
+    <button id="point">point</button>
+</div>
+
+
+
+<script src="http://localhost:8080/arcgis_js_api/3.22/init.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>behavioral widget</title>
+    <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.22/dijit/themes/tundra/tundra.css">
+
+   <!-- <script type="text/javascript">
+        require(["dojo/_base/declare", "dijit/_WidgetBase"], function(declare, _WidgetBase) {
+        	declare("MyFirstBehavioralWidget", _WidgetBase, {
+            	// 在这里编写属性与方法
+                constructor:function(param,srcNode){
+                    super();
+                    console.log("test");
+
+                }
+       	 });
+        });
+
+        require(["dojo/parser", "dojo/domReady!"], function(parser){
+        	parser.parse();
+        });
+    </script>-->
+
+    <script>
+        var locationPath=location.pathname.replace(/\/[^\/]+$/, "");
+        var rootPath = locationPath.substr(0, locationPath.substr(1).indexOf("/") + 1);
+
+        window.dojoConfig={
+            deps:["Layout/BehavioralWidget"],
+            packages:[
+                {
+                    name:"Layout",
+                    location: rootPath + "/src/js/dojo/Layout"
+                }
+            ]
+        };
+
+    </script>
+
+    <script src="http://localhost:8080/arcgis_js_api/3.22/init.js"></script>
+
+
+</head>
+<body class="tundra">
+    <span data-dojo-type="MyFirstBehavioralWidget">
+        最简单地行为性小部件
+    </span>
+</body>
+</html>
+

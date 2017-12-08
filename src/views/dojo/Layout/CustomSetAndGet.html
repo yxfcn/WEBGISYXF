@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>自定义的属性获取与设置</title>
+
+
+    <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.22/dijit/themes/tundra/tundra.css">
+
+
+    <script>
+        var locationPath=location.pathname.replace(/\/[^\/]+$/, "");
+        var rootPath = locationPath.substr(0, locationPath.substr(1).indexOf("/") + 1);
+
+        window.dojoConfig={
+            deps:["Layout/CustomSetAndGet"],
+            packages:[
+                {
+                    name:"Layout",
+                    location: rootPath + "/src/js/dojo/Layout"
+                }
+            ]
+        };
+
+    </script>
+    <script src="http://localhost:8080/arcgis_js_api/3.22/init.js"></script>
+    <script>
+
+        function showPanel() {
+            pane.set('open', true);
+        }
+
+        function hidePanel() {
+            pane.set('open', false);
+        }
+
+    </script>
+
+</head>
+<body class="tundra">
+    <span data-dojo-type="CustomSetAndGet" data-dojo-props="open: 'false'" data-dojo-id="pane">
+        该面板初始被隐藏
+    </span>
+    <button onclick="showPanel()">
+        显示
+    </button>
+    <button onclick="hidePanel()">
+        隐藏
+    </button>
+
+</body>
+</html>
+

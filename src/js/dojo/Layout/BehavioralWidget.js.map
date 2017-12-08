@@ -1,0 +1,1 @@
+{"version":3,"file":"BehavioralWidget.js","sourceRoot":"","sources":["BehavioralWidget.ts"],"names":[],"mappings":"AAAA,oDAAoD;;;IAQpD,IAAI,uBAAuB,GAAC,OAAO,CAAC,yBAAyB,EAAC,WAAW,EAAC;QACtE,WAAW,EAAE,UAAS,KAAK,EAAC,OAAO;YAC/B,cAAc;YACd,qEAAqE;YACrE,OAAO,CAAC,GAAG,CAAC,kCAAkC,CAAC,CAAC;QACpD,CAAC;KACJ,CAAC,CAAC;IAEH,MAAM,CAAC,KAAK,EAAE,CAAC;IAEf,OAAO,uBAAuB,CAAC"}
