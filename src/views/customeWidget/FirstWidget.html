@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8">
+    <title>First Widget</title>
+    <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.22/dijit/themes/tundra/tundra.css">
+
+
+    <script>
+        var locationPath=location.pathname.replace(/\/[^\/]+$/, "");
+        var rootPath = locationPath.substr(0, locationPath.substr(1).indexOf("/") + 1);
+
+        window.dojoConfig={
+            deps:["widgets/FirstWidget"],
+            packages:[
+
+                {
+                    name:"widgets",
+                    location:rootPath + "/src/js/webgisbook/widgets"
+                }
+            ]
+        };
+
+    </script>
+    <script src="http://localhost:8080/arcgis_js_api/3.22/init.js"></script>
+
+</head>
+<body class="tundra">
+<span data-dojo-type="FirstWidget"></span>
+</body>
+</html>

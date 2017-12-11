@@ -4,6 +4,10 @@ define(["require", "exports", "dojo/parser", "dijit/_WidgetBase", "dojo/_base/de
     var CustomSetAndGet = declare("CustomSetAndGet", [_WidgetBase], {
         // 参数
         open: true,
+        constructor: function () {
+            this.open = true;
+            console.log("Here is the constructor function");
+        },
         _setOpenAttr: function (/*Boolean*/ open) {
             this.open = open;
             if (open == true) {

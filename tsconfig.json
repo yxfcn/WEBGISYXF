@@ -16,7 +16,8 @@
     "./src/js/ESRIWebGIS/Map/Basemap/*",
     "./src/js/ESRIWebGIS/TemplatePicker/*",
     "./src/js/ESRIWebGIS/Editing/*",
-    "./src/js/webgisbook/widgets/*"
+    "./src/js/webgisbook/widgets/*",
+    "./src/js/webgisbook/*"
   ],
   "files": [
     "./src/js/ESRIWebGIS/TemplatePicker/EditWithoutEditor.ts"

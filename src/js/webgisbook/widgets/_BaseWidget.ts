@@ -6,12 +6,13 @@ import domAttr=require("dojo/dom-attr");
 import domStyle=require("dojo/dom-style");
 import on=require("dojo/on");
 import lang=require("dojo/_base/lang");
-import _Widget=require("./_Widgets");
+import _Widget=require("./_Widget");
+import _TemplatedMinxin=require("dijit/_TemplatedMixin");
 import template=require("dojo/text!./templates/_BaseWidget.html");
 
 
-var _BaseWidget=declare("_BaseWidget",[_Widget],{
-    constructor: function(/*Object*/ params) {
+var _BaseWidget=declare("_BaseWidget",[_Widget,_TemplatedMinxin], {
+    constructor: function (/*Object*/ params) {
         this.connects = [];
         this.widgets = {};
     },
@@ -20,27 +21,37 @@ var _BaseWidget=declare("_BaseWidget",[_Widget],{
     panels: null,
     panelIndex: -1,
 
-    postMixInProperties: function() {
+    postMixInProperties: function () {
+
+        var widgetsPath=location.origin+"/WEBGISYXF/src/js/webgisbook/widgets";
         if (this.icon === "") {
-            this.icon = "assets/images/icons/i_pushpin.png";
+            console.log("icon is null");
+
+            var locationPath=location.pathname.replace(/\/[^\/]+$/, "");
+            this.icon = widgetsPath+"/assets/images/icons/i_pushpin.png";
+            console.log(this.icon);
+
         }
+
     },
 
-    postCreate: function() {
-        // »Áπ˚¥Ê‘⁄∂‡∏ˆ√Ê∞Â£¨‘Ú÷ªœ‘ æµ⁄“ª∏ˆ
+    postCreate: function () {
+
+        // 如果存在多个面板，则只显示第一个
         this.panels = query(".widgetPanel", this.domNode);
-        this.panels.forEach(function(item, idx, arr) {
+        this.panels.forEach(function (item, idx, arr) {
             item.buttonIcon = domAttr.get(item, "buttonIcon");
             item.buttonText = domAttr.get(item, "buttonText");
         });
         this.showPanel(0);
+
     },
 
-    onShowPanel: function(index) {
-        // ”…–°≤øº˛øÚº‹¿‡WidgetFrameº‡Ã˝ π”√
+    onShowPanel: function (index) {
+        // 由小部件框架类WidgetFrame监听使用
     },
 
-    showPanel: function(/*Number*/index) {
+    showPanel: function (/*Number*/index) {
         this.panelIndex = index;
         array.forEach(this.panels, function (item, idx, arr) {
             if (idx == index) {
@@ -52,7 +63,8 @@ var _BaseWidget=declare("_BaseWidget",[_Widget],{
         });
     },
 
-    startup: function() {
+    startup: function () {
+
         if (this._started) {
             return;
         }
@@ -62,28 +74,31 @@ var _BaseWidget=declare("_BaseWidget",[_Widget],{
             child.startup();
         });
 
-        // ”Î–°≤øº˛øÚº‹¿‡WidgetFrameΩªª•
+        // 与小部件框架类WidgetFrame交互
         var frame = this.getParent();
-        if (frame && frame.declaredClass === "webgis2book.widgets.WidgetFrame") {
+        if (frame && frame.declaredClass === "webgisbook.widgets.WidgetFrame") {
             this.connects.push(on(this, "onShowPanel", frame, "selectPanel"));
         }
 
-        this.inherited(arguments);
+        //this.inherited(arguments);
     },
 
-    shutdown: function() {
-        // ”…◊”¿‡∏≤∏«∏√∑Ω∑®£¨ µœ÷πÿ±’ ±«Â≥˝’º”√◊ ‘¥
+    shutdown: function () {
+        // 由子类覆盖该方法，实现关闭时清除占用资源
+
     },
 
-    uninitialize: function() {
+    uninitialize: function () {
+
         array.forEach(this.connects, function (handle) {
             handle.remove(); // dojo.disconnect(handle);
         });
         this.connects = [];
+
     },
 
-    getAllNamedChildDijits: function() {
-        // ªÒµ√À˘”–µƒ◊”–°≤øº˛
+    getAllNamedChildDijits: function () {
+        // 获得所有的子小部件
         var w = query("[widgetId]", this.containerNode || this.domNode);
         var children = w.map(dijit.byNode);
 
@@ -94,4 +109,6 @@ var _BaseWidget=declare("_BaseWidget",[_Widget],{
             }
         }));
     }
-})
+});
+
+export=_BaseWidget;

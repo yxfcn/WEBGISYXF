@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>测试</title>
+    <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.22/dijit/themes/tundra/tundra.css" />
+    <link rel="stylesheet" href="http://localhost:8080/arcgis_js_api/3.22/esri/css/esri.css" />
+    <link rel="stylesheet" href="./js/webgisbook/widgets/themes/darkangel/darkangel.css" />
+    <link rel="stylesheet" href="./js/webgisbook/widgets/themes/darkangel/override.css" />
+
+
+    <script>
+        var locationPath=location.pathname.replace(/\/[^\/]+$/, "");
+        var rootPath = locationPath.substr(0, locationPath.substr(1).indexOf("/") + 1);
+
+        window.dojoConfig={
+            deps:["webgisbook/test"],
+            packages:[
+                {
+                    name:"webgisbook",
+                    location: rootPath + "/src/js/webgisbook"
+                }
+            ]
+        };
+
+    </script>
+    <script src="http://localhost:8080/arcgis_js_api/3.22/init.js"></script>
+    <script>
+
+
+    </script>
+</head>
+<body class="tundra">
+    <div id="mapDiv" style="position: relative; height: 1000px; border: 1px solid #000;">
+    </div>
+</body>
+</html>
